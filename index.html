@@ -3,7 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Cascade Putting Scorecard</title>
 
     <link rel="stylesheet" href="style.css">
@@ -11,26 +16,165 @@
 
 <body>
 
-    <div class="top-images">
-        
-    </div>
+    <!-- STARTUP SCREEN -->
+    <section id="startup-screen" class="screen startup-screen">
 
-    <h1>Cascade Putting Scorecard</h1>
+        <div class="startup-card">
 
-    <button id="add-player-btn">Add Player</button>
+            <h1>
+                Welcome to Cascade Putting!
+            </h1>
 
-    <table>
-        <thead id="table-head"></thead>
-        <tbody id="scorecard"></tbody>
-        <tfoot id="table-foot"></tfoot>
-    </table>
+            <h2>
+                at Blue Mountain Resort
+            </h2>
 
-    <div id="winner-popup" class="winner-popup">
-        <div class="winner-box">
-            <h2 id="winner-message"></h2>
-            <button onclick="closeWinnerPopup()">Close</button>
+            <img
+                src="images/cascade-logo.png"
+                alt="Cascade Putting logo"
+                class="startup-logo"
+            >
+
+            <label for="player-count">
+                How many players?
+            </label>
+
+            <select id="player-count">
+                <option value="2">2 Players</option>
+                <option value="3">3 Players</option>
+                <option value="4">4 Players</option>
+                <option value="5">5 Players</option>
+                <option value="6">6 Players</option>
+            </select>
+
+            <div class="startup-buttons">
+
+                <button id="start-game-btn" class="primary-button">
+                    Start Game
+                </button>
+
+                <button class="rules-button" onclick="openRules()">
+                    View Rules
+                </button>
+
+            </div>
+
         </div>
+
+    </section>
+
+
+    <!-- MAIN SCORECARD -->
+    <section id="game-screen" class="screen game-screen hidden">
+
+        
+
+        <h1>Cascade Putting Scorecard</h1>
+        <p class="subtitle">
+    Enter player names below before teeing off!
+</p>
+
+        <div class="game-buttons">
+
+            <button class="rules-button" onclick="openRules()">
+                Rules
+            </button>
+
+            <button id="start-over-btn" class="start-over-button">
+                Start Over
+            </button>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead id="table-head"></thead>
+
+                <tbody id="scorecard"></tbody>
+
+                <tfoot id="table-foot"></tfoot>
+
+            </table>
+
+        </div>
+<footer class="credits">
+    Made by DS and AWG
+</footer>
+    </section>
+
+
+    <!-- RULES POPUP -->
+    <div id="rules-popup" class="popup-overlay">
+
+        <div class="popup-box rules-box">
+
+            <button
+                class="popup-close-x"
+                onclick="closeRules()"
+                aria-label="Close rules"
+            >
+                ×
+            </button>
+
+            <h2>Cascade Putting Rules</h2>
+
+            <ol>
+                <li>Limit your shots to 6 per hole.</li>
+
+                <li>Putting only—no airborne shots.</li>
+
+                <li>
+                    Please stay off the rocks and out of the water.
+                </li>
+
+                <li>
+                    If you lose a golf ball, please ask the operator
+                    for a new one.
+                </li>
+
+                <li>Most importantly, have fun!</li>
+            </ol>
+
+            <button class="primary-button" onclick="closeRules()">
+                Got It
+            </button>
+
+        </div>
+
     </div>
+
+
+    <!-- WINNER POPUP -->
+    <div id="winner-popup" class="popup-overlay">
+
+        <div class="popup-box winner-box">
+
+            <h2 id="winner-message"></h2>
+
+            <div class="winner-buttons">
+
+                <button
+                    class="primary-button"
+                    onclick="closeWinnerPopup()"
+                >
+                    View Final Scorecard
+                </button>
+
+                <button
+                    class="start-over-button"
+                    onclick="startOver()"
+                >
+                    Start New Game
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <script src="script.js"></script>
 
